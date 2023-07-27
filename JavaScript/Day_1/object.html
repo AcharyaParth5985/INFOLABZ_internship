@@ -1,0 +1,36 @@
+//27 july file1 
+<!DOCTYPE html>
+
+<head>
+    
+</head>
+<body>
+    <script>
+        //objects
+        var mydata = {}
+        document.write(mydata)
+        document.write("<br>")
+        
+        var mydata1 = {"Gujarat":"Ahemedabad"}
+        document.write(mydata1["Gujarat"])
+        document.write("<br>")
+        
+        var mydata2 = {"ahmedabad":100,"surat":150,"vardra":75}
+        document.write(mydata2["surat"]+"<br>")
+
+        var mydata3 = {"ahmedabad":100,"surat":[150,200,1],"vardra":75}
+        document.write(mydata3["surat"][1]+"<br>")
+
+        var mydata4 = {"ahmedabad":[{"Date":"25 july","cases":2100},
+                                    {"Date":"26 july","cases":2200},
+                                    {"Date":"27 july","cases":2300}],
+                        "surat":[150,200,1],
+                        "vardra":75}
+        document.write(mydata4["ahmedabad"][1]["cases"]+"<br>")
+
+
+
+
+    </script>
+</body>
+</html>

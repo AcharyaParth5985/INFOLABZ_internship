@@ -1,0 +1,41 @@
+//27 july file2
+<!DOCTYPE html>
+
+<head>
+    
+</head>
+<body>
+    <script>
+        //accessing json data
+        var myobj ={"gujarat":"ahemadabad","maharastra":"mumbai","rajesthan":"jaipur"}
+
+        //key
+        for(var i in myobj){
+            document.write(i+"<br>")
+        }
+        
+        //value
+        for(var i in myobj){
+            document.write(myobj[i]+"<br>")
+        }
+
+        //both
+        for(var i in myobj){
+                document.writeln("state is : "+ i+" city is"+myobj[i]+"<br>")
+        }
+
+
+        var cases ={
+            "ahem":[1500,1600,2],
+            "raj":[500,600,1],
+            "vapi":[100,50,0],
+        }
+
+        for(var i in cases){
+            document.write(i+" new cases "+cases[i][0]+" recovered cses "+cases[i][1]+" deth "+cases[i][2])
+        }
+
+    </script>
+    
+</body>
+</html>
