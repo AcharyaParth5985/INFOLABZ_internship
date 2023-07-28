@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Covid-19 Update's</title>
+    </head>
+    <body>
+       
+            <script>
+                async function getdata() {
+                    let url = "https://data.covid19india.org/data.json"
+                    let covin = await( await fetch(url) ).json();
+
+                    document.write("<table><tr><th>Date</th><th>New</th><th>Recovered</th><th>Deth</th></tr>")
+                    
+                    for(var i in covin["cases_time_series"]){
+                       document.write("<tr><td>"+covin["cases_time_series"][i]["date"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["totalconfirmed"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["totalrecovered"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["totaldeceased"]+"</td></tr>")
+                    }
+                    document.write("</table>")
+                }
+
+                getdata();
+            </script>
+    </body>
+</html>
