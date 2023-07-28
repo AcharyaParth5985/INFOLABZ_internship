@@ -13,11 +13,21 @@
             <th>Recovered Cases</th>
             <th>Deth Cases</th>
         </tr>
-        <tbody id="mytable">
-
+        <!-- <tbody id="mytable"> -->
+            <script>
+                 var objcases = {"Ahemedabad":[1500,1600,2],
+                        "Rajkot":[500,600,1],
+                        "Vapi":[100,50,0]}
+                
+                for(var i in objcases){
+                    document.write("<tr><td>"+i+"</td><td>"+objcases[i][0]+"</td><td>"+objcases[i][1]+"</td><td>"+objcases[i][2]+"</td></tr>")
+                }
+                
+            </script>
+            
         </tbody>
     </table>
-    <script>
+    <!-- <script>
         var objcases = {"Ahemedabad":[1500,1600,2],
                         "Rajkot":[500,600,1],
                         "Vapi":[100,50,0]}
@@ -35,6 +45,7 @@
 
             tb.innerHTML+=tr
         }
-    </script>
+    </script> -->
+
 </body>
 </html>
