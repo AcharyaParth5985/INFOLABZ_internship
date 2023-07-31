@@ -12,10 +12,16 @@
                     document.write("<table><tr><th>Date</th><th>New</th><th>Recovered</th><th>Deth</th></tr>")
                     
                     for(var i in covin["cases_time_series"]){
-                       document.write("<tr><td>"+covin["cases_time_series"][i]["date"]+
-                                    "</td><td>"+ covin["cases_time_series"][i]["totalconfirmed"]+
-                                    "</td><td>"+ covin["cases_time_series"][i]["totalrecovered"]+
-                                    "</td><td>"+ covin["cases_time_series"][i]["totaldeceased"]+"</td></tr>")
+                        if(covin["cases_time_series"][i]["dailyconfirmed"]>+100000){
+                            document.write("<tr style='color:red'>")
+                        }
+                        else{
+                            document.write("<tr style='color:green'>")
+                        }
+                       document.write("<td>"+covin["cases_time_series"][i]["date"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["dailyconfirmed"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["dailyrecovered"]+
+                                    "</td><td>"+ covin["cases_time_series"][i]["dailydeceased"]+"</td></tr>")
                     }
                     document.write("</table>")
                 }
