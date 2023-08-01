@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            Area lister
+        </title>
+    </head>
+    <body>
+        <script>
+            async function fetchcode(form) {
+                var code = Number(form.pincode.value);
+                var area = document.getElementById("Area");
+                area.innerHTML = "";
+
+                if(!code){
+                    area.innerHTML = "Please Enter Pincode ::"
+                    return;
+                }
+
+                let url = "https://api.postalpincode.in/pincode/"+code
+                let area_obj = await ( await fetch(url) ).json()
+            
+                if(area_obj[0]["PostOffice"]==null){
+                    area.innerHTML += area_obj[0]["Message"]
+                    return;
+                }
+
+                area.innerHTML += area_obj[0]["Message"]+"<br> <br> Name of Area : "
+
+                for( var i in area_obj[0]["PostOffice"] )
+                    area.innerHTML += "<br>"+area_obj[0]["PostOffice"][i]["Name"]
+
+            }
+        </script>
+        <form >
+            Pincode : <input type="number" name="pincode">
+            <input type="button" value="SUBMIT" onclick="fetchcode(this.form); return false;">
+        </form>
+        <p id="Area"></p>
+    </body>
+</html>

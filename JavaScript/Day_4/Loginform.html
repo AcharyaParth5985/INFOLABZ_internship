@@ -1,0 +1,48 @@
+<html>
+    <head> 
+        <title>Login Validation</title>
+    </head>
+    <body>
+        <script>
+            var Email = ["ap@com","ac@com","aa@com","am@com"]
+            var pswd =["qwert","werty","ertyu","rtyui"]
+
+            function validate(form) {
+                var un = form.uname.value;
+                var pw = form.pwd.value;
+                
+
+                if(un=="" || pw =="")
+                   {
+                    if (un=="" && pw!="")
+                        document.getElementById("msg").innerHTML = "Please enter email ::"
+                    else if (un!="" && pw=="")
+                        document.getElementById("msg").innerHTML = "Please enter password ::"
+                    else
+                        document.getElementById("msg").innerHTML = "Please enter email And password both ::"
+                   }
+                else
+                    {
+                        for(var i = 0 ; i < Email.length ; i++ )
+                            {   
+                                //alert(un+" "+pw+" "+i+" "+Email[i]+" "+pswd[i])
+                                if (un==Email[i] && pw==pswd[i])
+                                    {
+                                        document.getElementById("msg").innerHTML = "Login Sucessfull :: Wellcome "
+                                        break;
+                                    }
+                                else
+                                    document.getElementById("msg").innerHTML = "login Failed :: check username or password"
+                            }
+                    }  
+            }
+        </script>
+        <form>
+            Email : <input type="text" name="uname" >
+            Password  : <input type="password" name="pwd" >
+            <input type="button" value="SUBMIT" onclick="validate(this.form); return false; ">
+        </form>
+
+        <P id="msg"></P>
+    </body>
+</html>
