@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>
+            Futual Fund finder
+        </title>
+    </head>
+    <body>
+
+        <script>
+            function GetScheme(form) {
+                var schemeCode = form.MFnumber.value
+
+                if (schemeCode == "") {
+                    result.innerHTML += "<br> Please Enter Number :"
+                    return;
+                }
+
+                    for( var i in MFobj){
+                       //alert(schemeCode+" "+MFobj[i]["schemeCode"])
+                        if (schemeCode == MFobj[i]["schemeCode"]) {
+                            result.innerHTML = "Scheme Name : "+MFobj[i]["schemeName"]
+                            return;
+                        }
+                    }
+
+                result.innerHTML = "Scheme not found ::"
+                
+            }
+        </script>
+        <form action="">
+            Enter Scheme Number : <input type="text" name="MFnumber" >
+            <input type="button" value="SUBMIT" onclick="GetScheme(this.form); return false;">
+        </form>
+        <p id = "scheme" ></p>
+        <script>
+            var MFobj = {};
+            var result = document.getElementById("scheme")
+            async function total() {
+                var result = document.getElementById("scheme")
+                let url = "https://api.mfapi.in/mf"
+                MFobj = await( await fetch(url) ).json()
+
+                var count =0;
+                for( var i in MFobj)
+                    count++
+                
+                result.innerHTML = " Total number of schemes available : "+count
+            }
+            total();
+        </script>
+       
+    </body>
+</html>

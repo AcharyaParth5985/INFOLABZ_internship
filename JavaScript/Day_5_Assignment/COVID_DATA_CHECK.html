@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>
+            COVID DATA CHECK
+        </title>
+        <style>
+            table , td{
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            async function CheckData(form) {
+                var date = form.Datetof.value
+                //alert(date)
+                var result = document.getElementById("Result")
+                result.innerHTML = " ";
+
+                if(date==null){
+                    result.innerHTML ="please enter valid Date " 
+                    return;
+                }
+    
+
+                let URL = "https://data.covid19india.org/data.json"
+                let coinobj = await( await fetch(URL) ).json()
+
+                
+                for( var i in coinobj["cases_time_series"] ){
+                    //alert(date+"  "+coinobj["cases_time_series"][i]["date"])
+                    if( date == coinobj["cases_time_series"][i]["date"] )  { 
+                        
+                        result.innerHTML += "Record  found <br> <table> <tr> <td> New Cases : </td><td>"+coinobj["cases_time_series"][i]["dailyconfirmed"]+"</td></tr> <tr><td> New Deaths : </td><td>"+coinobj["cases_time_series"][i]["dailydeceased"]+"</td></tr></table>" ;
+                        return ;
+                    }
+                }
+
+                result.innerHTML =" not found " 
+                
+            }
+        </script>
+        <form >
+            Date : <input type="text" name="Datetof">
+                <input type="button" value="SUBMIT" onclick="CheckData(this.form); return false;">
+        </form>
+        <p id="Result"></p>
+    </body>
+</html>
