@@ -2,7 +2,7 @@ import { Card, Row, Col } from "react-bootstrap";
 
 function Datacard(props) {
     return(
-    <Card >
+    <Card className="p-3">
         <Card.Header className="">
             <Row>
                 <Col  md="auto"> <span className="fs-1 fw-bolder badge bg-primary text-wrap">{props.stateCode}</span></Col>
