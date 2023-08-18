@@ -10,7 +10,6 @@
                     let covin = await( await fetch(url) ).json();
 
                     document.write("<table><tr><th>Date</th><th>Confirmed</th><th>Deth</th><th>Recovered</th></tr>")
-                    
 
                     for(var i in covin["cases_time_series"]){
                         document.write("<tr> <td> "+covin["cases_time_series"][i]["date"]+"<td> ")
@@ -22,7 +21,6 @@
                         else{
                             document.write("<tag style='color:green'> (-"+covin["cases_time_series"][i]["dailyconfirmed"]+")</tag></td>")
                         }
-
                         document.write("<td>"+covin["cases_time_series"][i]["totaldeceased"])
                         if(covin["cases_time_series"][i]["dailydeceased"]>0){
                             document.write("<tag style='color:red'> (+"+covin["cases_time_series"][i]["dailydeceased"]+")</tag></td>")
@@ -30,7 +28,6 @@
                         else{
                             document.write("<tag style='color:green'> (-"+covin["cases_time_series"][i]["dailydeceased"]+")</tag></td>")
                         }
-
                         document.write("<td>"+covin["cases_time_series"][i]["totalrecovered"])
                         if(covin["cases_time_series"][i]["dailyrecovered"]>0){
                             document.write("<tag style='color:green'> (+"+covin["cases_time_series"][i]["dailyrecovered"]+")</tag></td>")
@@ -38,13 +35,10 @@
                         else{
                             document.write("<tag style='color:red'> (-"+covin["cases_time_series"][i]["dailyrecovered"]+")</tag></td>")
                         }
-                        
                         document.write("</tr>")
-                       
                     }
                     document.write("</table>")
                 }
-
                 getdata();
             </script>
     </body>

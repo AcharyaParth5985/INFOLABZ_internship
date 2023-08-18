@@ -63,7 +63,8 @@ function One() {
 function Footer() {
   return (
     <>
-      <h1> The End. </h1>
+      <h1 style={{ borderTop: " 2px Solid var(--black)" , paddingtop: "10px" }} > The End. </h1>
+      
     </>
   );
 }
@@ -72,7 +73,7 @@ function Sidebar() {
   const [mydata, setData] = useState([]);
 
   const apiget = () => {
-    fetch("https://inshorts.me/news/top?offset=0&limit=4")
+    fetch(`https://inshorts.me/news/top?offset=0&limit=5`)
       .then((response) => response.json())
       .then((json) => {
       

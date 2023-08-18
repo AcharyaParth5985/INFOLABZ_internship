@@ -50,13 +50,20 @@ function CatogaryNews({ catg }) {
   // console.log("called : "+catg );
   const [mydata, setData] = useState([]);
   
+  
+
 
   function upCatog(catg) {
     document.getElementById("catogaryName").innerHTML = catg;
   }
 
   useEffect(()=>{
-    fetch(`https://inshorts.me/news/topics/${catg}?offset=0&limit=10`)
+    let url = `https://inshorts.me/news/topics/${catg}?offset=0&limit=10`;
+  if(catg === "all"){
+    url = "https://inshorts.me/news/all?offset=0&limit=10"
+  }
+
+    fetch(url)
     .then((responce) => responce.json())
     .then((json)=> setData(json.data.articles) )
     .catch((err)=>console.log("err"+err));

@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      Day_7 August 4
+     
     </div>
   );
 }
@@ -26,13 +26,14 @@ function AryMap() {
 
 //Mapping Object and Printing
 let objone = {
-  name: "Pushpendra",
-  surname: "Acharya",
+  name: "Narayana",
+  surname: "Murti",
 }
 
 function ObjMap() {
   return (
     <div>
+      <hr></hr>
       <h1>
         {
           Object.keys(objone).map(
@@ -55,6 +56,7 @@ let apiISRO = { "spacecrafts": [{ "id": 1, "name": "Aryabhata" }, { "id": 2, "na
 function Display_ISROSpacecrafts() {
   return (
     <div>
+     
       <h1> All ISRO spacecraft's name </h1>
       <table>
         <tbody>

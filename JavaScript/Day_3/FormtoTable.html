@@ -6,13 +6,7 @@
                 var name = form.uname.value
                 var pas = form.upassword.value
                 var city = form.ucity.value
-
-               // document.write("name:" +name+"pasword"+pas+"city :"+city)
-
-               document.querySelector("#table").innerHTML = "<table style=' border: 1px solid black;'> <tr> <td>Name : </td> <td> "+name+"</td> </tr> <tr> <td> Password : </td> <td> "+pas+"</td> </tr><tr> <td>City : </td> <td> "+city+"</td> </tr> </table>";
-
-
-                
+               document.querySelector("#table").innerHTML = "<table style=' border: 1px solid black;'> <tr> <td>Name : </td> <td> "+name+"</td> </tr> <tr> <td> Password : </td> <td> "+pas+"</td> </tr><tr> <td>City : </td> <td> "+city+"</td> </tr> </table>"; 
             }
         </script>
         <form class="form">
@@ -24,7 +18,6 @@
                 <option value="dhd">dhaod</option>
            </select><br>
            <input type="submit" onclick="showdata(this.form); return false; " >
-
         </form>
 
         <p id="table"></p>
